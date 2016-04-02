@@ -1,0 +1,21 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                                                    controllers.Application.index()
+POST    /reg/                                                                controllers.UserReg.reg()
+GET     /getAllUsers                                                         controllers.UserReg.getAllUsers()
+POST    /addAp/                                                              controllers.ApiarAdd.add()
+POST    /changeAp/                                                           controllers.ChangeAp.changeAp()
+POST    /auth/                                                               Auth.Authenticate.Authentication()
+GET     /getAllApp                                                           controllers.ApiarAdd.getAllApp()
+POST    /addHives/                                                           controllers.AddHives.addHive()
+POST    /delAp/                                                              controllers.DelApiar.delApiar()
+POST    /delHives/                                                           controllers.DelHives.delHive()
+POST    /getHives/                                                           controllers.GetHives.getHives()
+GET     /logout                                                              Auth.Logout.logout()
+POST    /changePass/                                                         Auth.ChangePass.changePass()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
