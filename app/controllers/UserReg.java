@@ -24,7 +24,8 @@ public class UserReg {
         Form<Registr> registrForm = Form.form(Registr.class).bindFromRequest();
         Registr regs = registrForm.get();
         User inspectMail = getMail(users);
-        if (inspectMail == null)
+        Registr inspectLogin = getLogin(regs);
+        if ((inspectMail == null) && (inspectLogin == null))
         {
             regs.user = users;
             users.registr = regs;
@@ -34,14 +35,21 @@ public class UserReg {
             session().put("surname", users.surname);
             return ok(toJson(users));
         }
-        else
-        {
-            return ok(toJson("Пользователь с такой почтой уже существует, повторите ввод"));
+        else if (inspectMail != null) {
+            return ok(toJson("Пользователь с такой почтой уже существует"));
         }
+        else if (inspectLogin != null){
+            return ok(toJson("Пользователь с таким логином уже существует"));
+        }
+        return ok();
     }
 
     public User getMail(User users){
         return User.find.where().eq("email", users.email).findUnique();
+    }
+
+    public Registr getLogin(Registr regs){
+        return Registr.find.where().eq("login", regs.login).findUnique();
     }
 
     public Result getAllUsers() {

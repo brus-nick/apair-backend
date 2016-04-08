@@ -30,7 +30,7 @@ public class Authenticate {
         }
         else
         {
-            return ok(toJson("User not found"));
+            return ok(toJson("Пользователя с таким логином или паролем не существует"));
         }
     }
 
