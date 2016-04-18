@@ -19,18 +19,11 @@ public class AddHives {
         Form<Apiarys> appiarForm = Form.form(Apiarys.class).bindFromRequest();
         Apiarys apiary = appiarForm.get();
         apiary = getApiar(apiary);
-        if (apiary == null)
-        {
-            return ok(toJson("Пасеки с таким номером не существует"));
-        }
-        else
-        {
-            Hives hive = new Hives();
-            hive.apiary = apiary;
-            apiary.hive.add(hive);
-            apiary.update();
-            return ok(toJson(hive));
-        }
+        Hives hive = new Hives();
+        hive.apiary = apiary;
+        apiary.hive.add(hive);
+        apiary.update();
+        return ok(toJson(hive));
     }
 
     public Apiarys getApiar(Apiarys apiary)
