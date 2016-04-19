@@ -8,6 +8,7 @@ POST    /reg/                                                                con
 GET     /getAllUsers                                                         controllers.UserReg.getAllUsers()
 POST    /addAp/                                                              controllers.ApiarAdd.add()
 POST    /changeAp/                                                           controllers.ChangeAp.changeAp()
+POST    /changeHive/                                                         controllers.ChangeHive.changeHive()
 POST    /auth/                                                               Auth.Authenticate.Authentication()
 GET     /getAllApp                                                           controllers.ApiarAdd.getAllApp()
 POST    /addHives/                                                           controllers.AddHives.addHive()

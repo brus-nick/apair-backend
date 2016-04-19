@@ -18,8 +18,9 @@ public class AddHives {
     public Result addHive() {
         Form<Apiarys> appiarForm = Form.form(Apiarys.class).bindFromRequest();
         Apiarys apiary = appiarForm.get();
+        Form<Hives> hiveForm = Form.form(Hives.class).bindFromRequest();
+        Hives hive = hiveForm.get();
         apiary = getApiar(apiary);
-        Hives hive = new Hives();
         hive.apiary = apiary;
         apiary.hive.add(hive);
         apiary.update();

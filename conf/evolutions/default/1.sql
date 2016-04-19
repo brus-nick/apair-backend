@@ -24,6 +24,7 @@ create table hives (
   an_hum                    integer,
   coordinates               varchar(255),
   state                     varchar(255),
+  phone                     varchar(255),
   ap_id                     bigint,
   constraint pk_hives primary key (hive_id))
 ;

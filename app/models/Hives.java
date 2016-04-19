@@ -27,6 +27,8 @@ public class Hives extends Model {
 
     public String state; //(open/close)
 
+    public String phone; //GSM
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "ap_id")

@@ -20,15 +20,8 @@ public class DelHives {
         Form<Hives> hivesForm = Form.form(Hives.class).bindFromRequest();
         Hives hive = hivesForm.get();
         hive = queryHives(hive);
-        if (hive == null)
-        {
-            return ok(toJson("Улья с таким номером не существует"));
-        }
-        else
-        {
-            hive.delete();
-            return ok(toJson("Улей удален"));
-        }
+        hive.delete();
+        return ok(toJson("Улей удален"));
     }
 
     public Hives queryHives(Hives hive)
