@@ -1,6 +1,5 @@
 package controllers;
 
-import models.Apiarys;
 import models.Hives;
 import models.Journal;
 import play.data.Form;
