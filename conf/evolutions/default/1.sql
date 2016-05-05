@@ -29,6 +29,18 @@ create table hives (
   constraint pk_hives primary key (hive_id))
 ;
 
+create table journal (
+  journal_id                bigint auto_increment not null,
+  mas                       integer,
+  temp                      integer,
+  hum                       integer,
+  coordinates               varchar(255),
+  state                     varchar(255),
+  date_time                 varchar(255),
+  hive_id                   bigint,
+  constraint pk_journal primary key (journal_id))
+;
+
 create table registr (
   reg_id                    bigint auto_increment not null,
   login                     varchar(255),
@@ -52,8 +64,10 @@ alter table apiarys add constraint fk_apiarys_user_1 foreign key (user_id) refer
 create index ix_apiarys_user_1 on apiarys (user_id);
 alter table hives add constraint fk_hives_apiary_2 foreign key (ap_id) references apiarys (ap_id) on delete restrict on update restrict;
 create index ix_hives_apiary_2 on hives (ap_id);
-alter table registr add constraint fk_registr_user_3 foreign key (user_id) references user (user_id) on delete restrict on update restrict;
-create index ix_registr_user_3 on registr (user_id);
+alter table journal add constraint fk_journal_hive_3 foreign key (hive_id) references hives (hive_id) on delete restrict on update restrict;
+create index ix_journal_hive_3 on journal (hive_id);
+alter table registr add constraint fk_registr_user_4 foreign key (user_id) references user (user_id) on delete restrict on update restrict;
+create index ix_registr_user_4 on registr (user_id);
 
 
 
@@ -64,6 +78,8 @@ SET FOREIGN_KEY_CHECKS=0;
 drop table apiarys;
 
 drop table hives;
+
+drop table journal;
 
 drop table registr;
 

@@ -28,7 +28,7 @@ public class ApiarAdd {
 
     @Security.Authenticated(Auth.ActionAuthenticator.class)
     public Result getAllApp() {
-        return ok(toJson(Apiarys.find.where().eq("user.user_id", session().get("session_id")).findList()));
+        return ok(toJson(Apiarys.find.where().eq("user_id", session().get("session_id")).findList()));
     }
 
     public User getUser() {

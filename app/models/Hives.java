@@ -4,6 +4,7 @@ import com.avaje.ebean.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Борис on 26.02.2016.
@@ -33,4 +34,7 @@ public class Hives extends Model {
     @ManyToOne
     @JoinColumn(name = "ap_id")
     public Apiarys apiary;
+
+    @OneToMany(mappedBy = "hive", cascade = CascadeType.ALL)
+    public List<Journal> journals;
 }

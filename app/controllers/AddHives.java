@@ -1,6 +1,5 @@
 package controllers;
 
-import com.avaje.ebean.Ebean;
 import models.Apiarys;
 import models.Hives;
 import play.data.Form;
@@ -27,8 +26,7 @@ public class AddHives {
         return ok(toJson(hive));
     }
 
-    public Apiarys getApiar(Apiarys apiary)
-    {
+    public Apiarys getApiar(Apiarys apiary) {
         return Apiarys.find.where().eq("ap_id", apiary.ap_id).findUnique();
     }
 }
