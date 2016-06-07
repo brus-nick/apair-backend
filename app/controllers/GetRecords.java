@@ -18,8 +18,9 @@ public class GetRecords {
     {
         Form<Hives> hivesForm = Form.form(Hives.class).bindFromRequest();
         Hives hive = hivesForm.get();
+        Form<Journal> journalForm = Form.form(Journal.class).bindFromRequest();
+        Journal log = journalForm.get();
         hive = queryHives(hive);
-        Journal log = new Journal();
 
         log.temp = 25;
         log.hum = 28;
@@ -27,6 +28,7 @@ public class GetRecords {
         log.hive = hive;
         hive.journals.add(log);
         hive.update();
+        System.out.println(log);
         List<Journal> journal = queryJournal(hive);
         return ok(toJson(journal));
     }
