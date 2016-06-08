@@ -52,8 +52,4 @@ public class UserReg {
         return Registr.find.where().eq("login", regs.login).findUnique();
     }
 
-    public Result getAllUsers() {
-        return ok(toJson(User.find.findList()));
-    }
-
 }
